@@ -1,6 +1,7 @@
 // import Image from "next/image";
 
-import Navbar from "./components/Navbar";
+import HomeCard from './components/HomeCard';
+import Navbar from './components/Navbar';
 
 export default function Home() {
   return (
@@ -49,7 +50,15 @@ export default function Home() {
       <section id="room-section">
         <div className="container mx-auto pt-5">
           <h1 className="text-2xl">Our Rooms</h1>
-          <div className="text-base">Our rooms is so comfortable and clean</div>
+          <div className="text-base mb-3">
+            Our rooms is so comfortable and clean
+          </div>
+
+          <div className="grid grid-cols-3 gap-5">
+            <HomeCard />
+            <HomeCard />
+            <HomeCard />
+          </div>
         </div>
       </section>
     </>
