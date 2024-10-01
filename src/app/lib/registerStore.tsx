@@ -14,28 +14,28 @@ export async function registerStore(
     confirm_password: formData.get("confirm_password"),
   });
 
-  //   if (!validatedFields.success) {
-  //     // console.log(validatedFields.error.flatten().fieldErrors);
-  //     return {
-  //       errors: validatedFields.error.flatten().fieldErrors,
-  //     };
-  //   }
-
-  const insertToDb = await prisma.user.create({
-    data: {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      password: formData.get("password"),
-    },
-  });
-
-  if (insertToDb) {
+  if (!validatedFields.success) {
+    // console.log(validatedFields.error.flatten().fieldErrors);
     return {
-      success: "data berhasil ditambahkan",
+      errors: validatedFields.error.flatten().fieldErrors,
     };
   }
-  //   return {
-  //     failed: "data gagal ditambahkan",
-  //   };
-  console.log("gagal");
+
+  try {
+    const insertToDb = await prisma.user.create({
+      data: {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        password: formData.get("password"),
+      },
+    });
+    return {
+      success: true,
+    };
+  } catch (e) {
+    return {
+      success: false,
+      message: "Data gagal tersimpan",
+    };
+  }
 }

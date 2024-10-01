@@ -2,12 +2,40 @@
 
 import Link from "next/link";
 import React from "react";
+import Swal from "sweetalert2";
+import { useRouter } from "next/router";
 import { useFormState } from "react-dom";
 import { registerStore } from "@/app/lib/registerStore";
 
 const RegisterForm = () => {
   const initialState = { name: "", email: "", password: "" };
   const [errorMessage, formAction] = useFormState(registerStore, initialState);
+  const router = useRouter();
+
+  if (errorMessage.success) {
+    Swal.fire({
+      toast: true,
+      showConfirmButton: false,
+      icon: "success",
+      title: "Success",
+      text: "Data berhasil disimpan",
+      position: "top-end",
+      timer: 3000,
+      timerProgressBar: true,
+      willClose: () => {
+        router.push("/admin/login");
+      },
+    });
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text:
+        errorMessage.errors?.name ||
+        errorMessage.message ||
+        "Something went wrong!",
+    });
+  }
 
   return (
     <form action={formAction}>
