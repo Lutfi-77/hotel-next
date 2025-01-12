@@ -1,9 +1,9 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { Metadata } from "next";
-import "@/css/style.css";
-import RegisterForm from "@/app/(admin)/components/registerForm";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+// import { Metadata } from "next";
+import '@/css/style.css';
+import RegisterForm from '@/app/(admin)/components/registerForm';
 
 // export const metadata: Metadata = {
 //   title: "Next.js SignUp Page | TailAdmin - Next.js Dashboard Template",
@@ -20,14 +20,14 @@ const SignUp: React.FC = () => {
             <Link className="mb-5.5 inline-block" href="/">
               <Image
                 className="hidden dark:block"
-                src={"/images/logo/logo.svg"}
+                src={'/images/logo/logo.svg'}
                 alt="Logo"
                 width={176}
                 height={32}
               />
               <Image
                 className="dark:hidden"
-                src={"/images/logo/logo-dark.svg"}
+                src={'/images/logo/logo-dark.svg'}
                 alt="Logo"
                 width={176}
                 height={32}

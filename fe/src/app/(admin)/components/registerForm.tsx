@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import React from "react";
-import Swal from "sweetalert2";
-import { useRouter } from "next/router";
-import { useFormState } from "react-dom";
-import { registerStore } from "@/app/lib/registerStore";
+import Link from 'next/link';
+import React from 'react';
+import Swal from 'sweetalert2';
+import { useRouter } from 'next/navigation';
+import { useFormState } from 'react-dom';
+import { registerStore } from '@/app/lib/registerStore';
 
 const RegisterForm = () => {
-  const initialState = { name: "", email: "", password: "" };
+  const initialState = { name: '', email: '', password: '' };
   const [errorMessage, formAction] = useFormState(registerStore, initialState);
   const router = useRouter();
 
@@ -16,26 +16,25 @@ const RegisterForm = () => {
     Swal.fire({
       toast: true,
       showConfirmButton: false,
-      icon: "success",
-      title: "Success",
-      text: "Data berhasil disimpan",
-      position: "top-end",
+      icon: 'success',
+      title: 'Success',
+      text: 'Data berhasil disimpan',
+      position: 'top-end',
       timer: 3000,
       timerProgressBar: true,
-      willClose: () => {
-        router.push("/admin/login");
-      },
     });
-  } else {
-    Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text:
-        errorMessage.errors?.name ||
-        errorMessage.message ||
-        "Something went wrong!",
-    });
+    router.push('/admin/login');
   }
+  // else {
+  //   Swal.fire({
+  //     icon: 'error',
+  //     title: 'Oops...',
+  //     text:
+  //       errorMessage.errors?.name ||
+  //       errorMessage.message ||
+  //       'Something went wrong!',
+  //   });
+  // }
 
   return (
     <form action={formAction}>
@@ -199,7 +198,7 @@ const RegisterForm = () => {
         />
       </div>
 
-      <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
+      {/* <button className="flex w-full items-center justify-center gap-3.5 rounded-lg border border-stroke bg-gray p-4 hover:bg-opacity-50 dark:border-strokedark dark:bg-meta-4 dark:hover:bg-opacity-50">
         <span>
           <svg
             width="20"
@@ -234,11 +233,11 @@ const RegisterForm = () => {
           </svg>
         </span>
         Sign up with Google
-      </button>
+      </button> */}
 
       <div className="mt-6 text-center">
         <p>
-          Already have an account?{" "}
+          Already have an account?{' '}
           <Link href="/admin/signin" className="text-primary">
             Sign in
           </Link>
