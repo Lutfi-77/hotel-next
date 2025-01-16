@@ -35,8 +35,7 @@ Response Body Failed:
 
 ```json
 {
-  "status": "failed",
-  "message": "Something went wrong"
+  "error": "something went wrong"
 }
 ```
 
@@ -73,8 +72,7 @@ Response Body Failed:
 
 ```json
 {
-  "status": "failed",
-  "message": "Something went wrong"
+  "error": "something went wrong"
 }
 ```
 
@@ -108,7 +106,6 @@ Response Body Failed:
 
 ```json
 {
-  "status": "failed",
-  "message": "Email or password is incorrect"
+  "error": "email or password is incorrect"
 }
 ```

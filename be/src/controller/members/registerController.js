@@ -3,10 +3,11 @@ const memberValidation = require('../../validation/memberValidation');
 const validate = require('../../validation/validate');
 
 const register = async (req, res) => {
-  // console.log(req.body);
-  validate(memberValidation, req.body);
+  const validation = validate(memberValidation, req.body);
+  if (validation.error) {
+    res.status(400).json(validation);
+  }
   const result = service.store();
-  res.status(200).send(result);
 };
 
 module.exports = {
