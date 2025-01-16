@@ -7,7 +7,8 @@ const register = async (req, res) => {
   if (validation.error) {
     res.status(400).json(validation);
   }
-  const result = service.store();
+  const { confirm_password, ...data } = req.body;
+  const result = service.store(data);
 };
 
 module.exports = {
