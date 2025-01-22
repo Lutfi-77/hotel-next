@@ -1,9 +1,9 @@
-require('dotenv').config();
-const { PrismaClient } = require('@prisma/client');
+require("dotenv").config();
+const { PrismaClient } = require("@prisma/client");
 
 let prisma;
-console.log(process.env.NODE_ENV);
-if (process.env.NODE_ENV === 'production') {
+// console.log(process.env.NODE_ENV);
+if (process.env.NODE_ENV === "production") {
   prisma = new PrismaClient();
 } else {
   // Use a global variable to store the PrismaClient in non-production environments (like development)
