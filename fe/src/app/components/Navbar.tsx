@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import ThemeSwitcher from './ThemeSwitcher';
 
 const Navbar = () => {
   return (
@@ -70,7 +71,10 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <a href="#" className="bg-transparent border rounded-3xl px-8 py-2">
+          Login
+        </a>
+        <ThemeSwitcher />
       </div>
     </div>
   );

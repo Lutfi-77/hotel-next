@@ -9,7 +9,7 @@ export default function Home() {
       {/* Navbar Section */}
       <Navbar />
       {/* End of Navbar Section */}
-      <div className="w-full h-[80vh]">
+      <div className="w-full h-[80vh] rounded-b-lg">
         <img
           src="https://images.unsplash.com/photo-1599304843532-5a8dff6d1ca8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="background"
